@@ -13,6 +13,19 @@
 
 <body>
     <h1>Home Page</h1>
+    <main class="container apartments">
+        <% for (const ap of apartments) { %>
+            <article class="apartment">
+                <header>
+                    <%= ap.title %>
+                </header>
+                <div><img src="<%= ap.mainPhoto %>" alt=""></div>
+                <footer>
+                    <%= ap.price %> € por noche
+                </footer>
+            </article>
+            <% } %>
+    </main>
 </body>
 
 </html>
