@@ -34,3 +34,6 @@ const apartmentSchema = new Schema({
 
 });
 
+const Apartment = model('Apartment', apartmentSchema);
+
+export default Apartment;
