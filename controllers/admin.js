@@ -9,8 +9,17 @@ const getNewApartmentForm = (req, res) => {
     res.render('new-apartment.ejs')
 }
 
+const postNewApartment = async (req, res) => {
+    Apartment.create({
+
+    });
+
+    res.send('Apartmaneto creado');
+}
+
 // named exports (expotamos varios recursos, lo hacemos como un objeto)
 module.exports = {
-    getNewApartmentForm
+    getNewApartmentForm,
+    postNewApartment
 }
 
