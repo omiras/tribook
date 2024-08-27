@@ -10,11 +10,15 @@ const getNewApartmentForm = (req, res) => {
 }
 
 const postNewApartment = async (req, res) => {
-    Apartment.create({
-
+    
+    await Apartment.create({
+        title: req.body.title,
+        price: req.body.price,
+        size: req.body.size,
+        mainPhoto: req.body.mainPhoto
     });
 
-    res.send('Apartmaneto creado');
+    res.send('Apartamaneto creado');
 }
 
 // named exports (expotamos varios recursos, lo hacemos como un objeto)

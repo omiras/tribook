@@ -18,7 +18,6 @@ const apartmentSchema = new Schema({
     mainPhoto: {
         type: String,
         required: true,
-        match: ['\b((https?|ftp):\/\/[-\w+&@#/%=~_|!:,.;]+[-\w+&@#/%=~_|])', "URL not valid"]
     },
     services: {
         // array de strings 
