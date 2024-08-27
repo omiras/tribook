@@ -36,4 +36,5 @@ const apartmentSchema = new Schema({
 
 const Apartment = model('Apartment', apartmentSchema);
 
-export default Apartment;
+// Exporta un único recurso
+module.exports = Apartment;
