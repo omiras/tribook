@@ -13,6 +13,18 @@ const getApartments = async (req, res) => {
     });
 }
 
+const getApartmentById = async (req, res) => {
+    // 1. Voy al modelo para obtener el apartamento dado su id
+    const { idApartment } = req.params;
+
+    const selectedApartment = await Apartment.findById(idApartment);
+
+    res.render('detail-apartment', {
+        selectedApartment
+    });
+};
+
 module.exports = {
-    getApartments
+    getApartments,
+    getApartmentById
 }

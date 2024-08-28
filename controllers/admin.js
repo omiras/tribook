@@ -10,9 +10,10 @@ const getNewApartmentForm = (req, res) => {
 }
 
 const postNewApartment = async (req, res) => {
-    
+
     await Apartment.create({
         title: req.body.title,
+        description: req.body.description,
         price: req.body.price,
         size: req.body.size,
         mainPhoto: req.body.mainPhoto
