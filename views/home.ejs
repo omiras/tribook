@@ -14,7 +14,7 @@
 <body>
     <h1>Home Page</h1>
     <main class="container apartments">
-        <!-- Paso 1 BUSCAR: Añadir un formulario para realizar la búsqueda por precio máximo -->
+        <!-- Paso 1 BUSCAR: Añadir un formulario para realizar la búsqueda por precio máximo. este <form> que valor tiene el atributo method? GET . Qué valor tendrá el atributo "action"? /search -->
         <% for (const ap of apartments) { %>
             <a href="/apartment/<%= ap._id %>">
                 <article class="apartment">

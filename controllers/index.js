@@ -26,7 +26,7 @@ const getApartmentById = async (req, res) => {
 
 const searchApartments = async (req, res) => {
 
-    // Parsear la query string que recibo del formulario
+    // PAso 3 buscar apartamentos. Parsear la query string que recibo del formulario
 
     // Obtener del modelo todos los apartamentos cuyo precio sea menor que el precio maximo que el usuairo está dispuesto a pagar
 
