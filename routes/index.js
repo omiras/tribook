@@ -9,6 +9,7 @@ const indexControllers = require('../controllers/index.js');
 router.get('/', indexControllers.getApartments);
 
 // Paso 2 Buscar apartamentos: Crear una nueva ruta al endpoint /search . Debe ejecutar el controlador indexControllers.searchApartments
+router.get('/search', indexControllers.searchApartments);
 
 // ruta dinámica para detalle del apartamento
 router.get('/apartment/:idApartment', indexControllers.getApartmentById);
