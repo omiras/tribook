@@ -33,7 +33,16 @@ const apartmentSchema = new Schema({
         disability: Boolean,
         heater: Boolean,
         tv: Boolean
-    }
+    },
+    // services: {
+    //     type: [String], // enum
+    //     validate: {
+    //         validator: function (v) {
+    //             return "Devuelve false si el valor 'v' a insertar no es Wifi o Kitchem o Air conditionating bla bla"
+    //         },
+    //         message: props => `${props.value} is not a valid service!`
+    //     },
+    // }
 
 });
 

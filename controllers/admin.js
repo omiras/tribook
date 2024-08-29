@@ -11,6 +11,8 @@ const getNewApartmentForm = (req, res) => {
 
 const postNewApartment = async (req, res) => {
 
+    // Me han metido más servicios en el req.services que los servicios que yo quiero? kitchen, wifi, etc. res.status(400).send('Ha ocurrido un error');
+    
     await Apartment.create({
         title: req.body.title,
         description: req.body.description,
