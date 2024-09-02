@@ -23,13 +23,13 @@
             <textarea rows="5" name="description" id="description"><%= apartment.description %> </textarea>
             <!-- TODO: Precargar todos los campos que nos faltan del formulario: price, size, etc.-->
             <label for="price">Precio por noche</label>
-            <input type="number" name="price" id="price" required min="0">
+            <input type="number" name="price" id="price" required min="0" value="<%= apartment.price %>">
             <label for="size">M <sup>2</sup></label>
-            <input type="number" name="size" id="size" required min="0">
+            <input type="number" name="size" id="size" required min="0" value="<%= apartment.size %>">
             <label for="mainPhoto">Foto principal</label>
-            <input type="url" name="mainPhoto" id="mainPhoto" required>
+            <input type="url" name="mainPhoto" id="mainPhoto" required value="<%= apartment.mainPhoto  %>">
             <!-- TODO: Añadir nuevo cuando estemos en añadir apartmento. Pero al editar apartamento debería leerse "Guardar cambios"-->
-            <input type="submit" value="Añadir nuevo">
+            <input type="submit" value="<%= apartment._id? 'Guardar Cambios': 'Añadir nuevo' %>">
         </form>
     </main>
 
