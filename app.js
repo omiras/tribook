@@ -30,6 +30,11 @@ app.set('view engine', 'ejs');
 // Usamos el middleware morgan para loguear las peticiones del cliente
 app.use(morgan('tiny'));
 
+app.use((req, res, next) => {
+    res.locals.isAdmin = false;
+    next();
+});
+
 // Añadimos las ritas de index.js en nuestra app
 // El primer parámetro significa que todas las rutas que se encuentren en 'indexRouter' estarán prefijados por '/'
 // Voy a prefijar todas las rutas de administrador con '/admin'

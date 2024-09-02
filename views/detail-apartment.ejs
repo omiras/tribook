@@ -10,13 +10,26 @@
 
 <body>
     <article class="container">
-        <h1><%= selectedApartment.title %></h1>
-        <header> <del style="color: rgb(190, 182, 182)"><%= selectedApartment.price %></del> 
-            <%= selectedApartment.price * 0.9 %> € por noche</header>
+        <h1>
+            <%= selectedApartment.title %>
+        </h1>
+        <header> <del style="color: rgb(190, 182, 182)">
+                <%= selectedApartment.price %>
+            </del>
+            <%= selectedApartment.price * 0.9 %> € por noche
+        </header>
         <img src="<%= selectedApartment.mainPhoto %>" alt="">
-        <div><%= selectedApartment.description %></div>
-        <footer><%= selectedApartment.size %> m<sup>2</sup></footer>
+        <div>
+            <%= selectedApartment.description %>
+        </div>
+        <footer>
+            <%= selectedApartment.size %> m<sup>2</sup>
+        </footer>
     </article>
+    <!-- TODO IN CLASS: Mostrar solo el valor de la variable y animarles a poner un botón de editar-->
+    <% if (isAdmin) { %>
+        <a href="/admin/apartment/<%= selectedApartment._id %>/edit">Editar apartamento</a>
+        <% } %>
 </body>
 
 </html>
