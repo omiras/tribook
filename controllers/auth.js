@@ -36,7 +36,7 @@ const logout = (req, res) => {
         if (err) {
             return res.send('Error al cerrar sesión');
         }
-        res.redirect('/login');
+        res.redirect('/');
     });
 }
 

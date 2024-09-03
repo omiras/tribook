@@ -31,14 +31,6 @@ app.use(session({
     cookie: { secure: false } // secure: true en producción con HTTPS
 }));
 
-app.use((req, res, next) => {
-    // le pasamos a la variable res.locals todo el objeto req.session
-    // La primera vez que creamos esta sesión, diremos que el usuario ha visitado 0 veces la pagina de Home
-    if (!req.session.visitedHome) {
-        req.session.visitedHome = 0;
-    }
-    next();
-});
 
 // endpoint para gestionar el logout
 app.get('/logout', (req, res) => {
