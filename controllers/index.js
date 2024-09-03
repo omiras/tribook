@@ -8,12 +8,9 @@ const getApartments = async (req, res) => {
     // Obtenemos todos los apartamentos de la base de datos
     const apartments = await Apartment.find();
 
-    // Nos gustaria informar al cliente las veces que ha vistiado la vista de todos los apartmentos
-    req.session.visitedHome += 1;
 
     res.render('home', {
-        apartments,
-        visitedHome: req.session.visitedHome
+        apartments
     });
 }
 
@@ -32,7 +29,7 @@ const searchApartments = async (req, res) => {
 
     // PAso 3 buscar apartamentos. Parsear la query string que recibo del formulario
     const { maxPrice } = req.query;
-    
+
 
     // Obtener del modelo todos los apartamentos cuyo precio sea menor que el precio maximo que el usuairo está dispuesto a pagar
 
