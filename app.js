@@ -19,6 +19,16 @@ const app = express();
 // Tenemos que usar un nuevo middleware para indicar a Express que queremos procesar peticiones de tipo POST
 app.use(express.urlencoded({ extended: true }));
 
+// Vamos a pasar una variable a todas las vistas. Vamos a indicar si el usuario que está accediendo a la vista es de tipo administrador o no. Eventualmente, esta información debería proceder de una base de datos de usuario. Ahora mismo todas las rutas '/admin' se considera que accede un usuario de tipo adiministrador
+app.use((req, res, next) => {
+    // La variable req.locals es una variable "global" de tipo objecto a la que todas las vistas pueden acceder
+    // Por defecto, no soy un usuario administrador
+    res.locals.isAdmin = false;
+
+    // tenemos que ejecutar next() para que la petición HTTP siga su curso
+    next();
+})
+
 // Añadimos el middleware necesario para que el client puedo hacer peticiones GET a los recursos públicos de la carpeta 'public'
 app.use(express.static('public'));
 
