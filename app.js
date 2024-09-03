@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const USERNAME = 'admin';
+const USERNAME = 'lorena';
 const PASSWORD = 'admin';
 
 // importar las rutas públicas
