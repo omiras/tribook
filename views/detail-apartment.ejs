@@ -28,9 +28,13 @@
     </article>
     <footer>
         Soy administrador? <%= isAdmin %>
-        <% if (isAdmin) { %>
-            <a href="/admin/apartment/<%= selectedApartment._id %>/edit/">Editar apartamento</a>
-        <% } %>
+            <% if (isAdmin) { %>
+                <a href="/admin/apartment/<%= selectedApartment._id %>/edit/">Editar apartamento</a>
+                <% } else { %> <!-- Si no soy adminitrador-->
+
+                    <p>Mostrar botón de reservar con sus campos de fecha de inicio...fecha de fin, etc.</p>
+                    <% } %>
+
     </footer>
 </body>
 

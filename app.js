@@ -24,6 +24,7 @@ app.use((req, res, next) => {
     // La variable req.locals es una variable "global" de tipo objecto a la que todas las vistas pueden acceder
     // Por defecto, no soy un usuario administrador
     res.locals.isAdmin = false;
+    res.locals.title = "PATATA";
 
     // tenemos que ejecutar next() para que la petición HTTP siga su curso
     next();
