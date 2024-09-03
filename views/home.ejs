@@ -13,6 +13,8 @@
 
 <body>
     <h1>Home Page</h1>
+    <p> <a href="/admin/apartment/new-apartment">Añadir nuevo apartamento</a>
+    </p>
     <!-- Paso 1 BUSCAR: Añadir un formulario para realizar la búsqueda por precio máximo. este <form> que valor tiene el atributo method? GET . Qué valor tendrá el atributo "action"? /search -->
     <form class="container" action="/search">
         <label for="maxPrice">Precio máximo por noche</label>
@@ -21,7 +23,6 @@
     </form>
 
     <main class="container apartments">
-
         <% for (const ap of apartments) { %>
             <a href="/apartment/<%= ap._id %>">
                 <article class="apartment">
@@ -35,9 +36,12 @@
                 </article>
             </a>
             <% } %>
-            <footer>Es administrador? <%= isAdmin %> Valor de la variable global title: <%= title %> </footer>
+                <footer>Es administrador? <%= isAdmin %> Valor de la variable global title: <%= title %>
+                </footer>
+                <footer> Número de veces que has visitado el home <%= visitedHome %>
+                </footer>
     </main>
- 
+
 </body>
 
 </html>
