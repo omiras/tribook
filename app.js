@@ -13,6 +13,9 @@ const indexRoutes = require('./routes/index.js');
 // importar las rutas de administrador
 const adminRoutes = require('./routes/admin.js');
 
+// rutas de autentificación
+const authRoutes = require('./routes/auth.js');
+
 
 // creamos una instancia del servidor Express
 const app = express();
@@ -37,48 +40,9 @@ app.use((req, res, next) => {
     next();
 });
 
-// endpoint para obtener un formulario de login
-// TODO: Tener esto en una vista
-app.get('/login', (req, res) => {
-    res.send(`
-        <form method="POST" action="/login">
-            <input type="text" name="username" placeholder="Usuario" required />
-            <input type="password" name="password" placeholder="Contraseña" required />
-            <button type="submit">Iniciar sesión</button>
-        </form>
-    `);
-});
-
-const USERNAME = "admin";
-const PASSWORD = "admin";
-
-app.post('/login', (req, res) => {
-    // Obtener el usuario y contraseña del formulario
-    const { username, password } = req.body;
-
-    // TODO.: Crear un modelo de Users. Crear un Schema que guarde los usuarios de tipo administrador en tu base de datos de MongoDB (username, password).
-
-    // TODO+: Crear una pagina para registrar nuevos usuarios administradores
-
-    // Si el usuario y contraseña coinciden con el de nuestra "base de datos", entonces nos guardaremos la información de que el cliente esta autentificado.
-    if (username === USERNAME && password === PASSWORD) {
-        req.session.isAuthenticated = true;
-        res.locals.isAdmin = true;
-
-        res.redirect('/');
-    } else {
-        res.send('Usuario o contraseña incorrectos');
-    }
-});
-
 // endpoint para gestionar el logout
 app.get('/logout', (req, res) => {
-    req.session.destroy(err => {
-        if (err) {
-            return res.send('Error al cerrar sesión');
-        }
-        res.redirect('/login');
-    });
+
 });
 
 // Vamos a pasar una variable a todas las vistas. Vamos a indicar si el usuario que está accediendo a la vista es de tipo administrador o no. Eventualmente, esta información debería proceder de una base de datos de usuario. Ahora mismo todas las rutas '/admin' se considera que accede un usuario de tipo adiministrador
@@ -121,6 +85,7 @@ app.use('/admin', (req, res, next) => {
 });
 
 app.use('/admin', adminRoutes);
+app.use(authRoutes);
 app.use('/', indexRoutes);
 
 async function connectDB() {
