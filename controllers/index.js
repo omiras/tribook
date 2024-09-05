@@ -10,7 +10,7 @@ const getApartments = async (req, res) => {
 
 
     res.render('home', {
-        apartments
+        apartments,
     });
 }
 
@@ -40,8 +40,20 @@ const searchApartments = async (req, res) => {
     });
 }
 
+const postNewReservation = async = (req, res) => {
+    // 1. Es una petición tipo POST-> desestructurar el req.body y obtener todos los datos de la reserva
+
+    // 2A. DAdo el id del apartmento,  recuperar el Apartment de la colección. Luego crear la reserva Reservation.create() pasandole el apartamento que acabamos de recuperar
+
+    // 2B. Crear directamente la reserva con Reservation.create() y establecer el campo apartment, que de tipo ObjectID, con el identificador del apartamento recuperado del formulario
+
+    // 3. Podemos contestar con algun tipo mensaje al usuario sobre la reservada creada
+    // res.json(newReservation); <-newReservation es la reserva que acabmos de crear
+};
+
 module.exports = {
     getApartments,
     getApartmentById,
-    searchApartments
+    searchApartments,
+    postNewReservation
 }

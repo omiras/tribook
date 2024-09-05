@@ -1,6 +1,7 @@
 // Your code here ...
 const { Schema, model } = require('mongoose');
 
+
 const apartmentSchema = new Schema({
     title: {
         type: String,

@@ -70,7 +70,7 @@ app.use('/admin', (req, res, next) => {
 });
 
 app.use('/admin', adminRoutes);
-app.use(authRoutes);
+app.use('/', authRoutes);
 app.use('/', indexRoutes);
 
 async function connectDB() {

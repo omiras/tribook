@@ -30,8 +30,9 @@
         Soy administrador? <%= isAdmin %>
             <% if (isAdmin) { %>
                 <a href="/admin/apartment/<%= selectedApartment._id %>/edit/">Editar apartamento</a>
-                <% } else { %> <!-- Si no soy adminitrador-->
-
+                <% } else { %>
+                    <!-- Si no soy adminitrador. TODO: valorar si permitir al admin también hacer reservas -->
+                    <!-- TODO 1. Crear los controles de formulario necesarios para realizar la reserva: EMAIL, FECHA DE INICIO, FECHA DE FIN. Este formulario debería realiar una petición de tipo POST a /apartment/new-reservation. ACORDAOS que hay que pasar el identificador del apartamento en un <input:hidden>. Cómo hacerlo? Mirad la vida detail-apartment.ejs -->
                     <p>Mostrar botón de reservar con sus campos de fecha de inicio...fecha de fin, etc.</p>
                     <% } %>
 
