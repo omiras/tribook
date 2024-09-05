@@ -1,7 +1,9 @@
 /** Crear un conjunto de funciones que van a dar respuesta a nuestras rutas  */
+const mongoose = require('mongoose');
 
 // Importamos el modelo
 const Apartment = require('../models/apartment.model.js');
+const Reservation = require('../models/reservation.model.js');
 
 const getApartments = async (req, res) => {
 
@@ -40,15 +42,29 @@ const searchApartments = async (req, res) => {
     });
 }
 
-const postNewReservation = async = (req, res) => {
+const postNewReservation = async (req, res) => {
     // 1. Es una petición tipo POST-> desestructurar el req.body y obtener todos los datos de la reserva
+    const { email, startDate, endDate, idApartment } = req.body;
 
     // 2A. DAdo el id del apartmento,  recuperar el Apartment de la colección. Luego crear la reserva Reservation.create() pasandole el apartamento que acabamos de recuperar
+    const apartment = await Apartment.findById(idApartment);
+    const newReservation = await Reservation.create({
+        email,
+        startDate,
+        endDate,
+        apartment
+    });
+
 
     // 2B. Crear directamente la reserva con Reservation.create() y establecer el campo apartment, que de tipo ObjectID, con el identificador del apartamento recuperado del formulario
-
+    // const newReservation = await Reservation.create({
+    //     email,
+    //     startDate,
+    //     endDate,
+    //     apartment: new mongoose.Types.ObjectId(idApartment)
+    // });
     // 3. Podemos contestar con algun tipo mensaje al usuario sobre la reservada creada
-    // res.json(newReservation); <-newReservation es la reserva que acabmos de crear
+    res.json(newReservation);
 };
 
 module.exports = {

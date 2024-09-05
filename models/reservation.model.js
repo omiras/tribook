@@ -19,7 +19,7 @@ const reservationSchema = Schema({
         enum: ['Pending', 'Accepted', 'Rejected'],
         default: 'Pending'
     },
-    apartment: { type: Schema.Types.ObjectId, ref: 'Apartments' }
+    apartment: { type: Schema.Types.ObjectId, ref: 'Apartment' }
 });
 
 const Reservation = model('Reservation', reservationSchema);
