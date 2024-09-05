@@ -35,6 +35,7 @@
                     <!-- TODO 1. Crear los controles de formulario necesarios para realizar la reserva: EMAIL, FECHA DE INICIO, FECHA DE FIN. Este formulario debería realiar una petición de tipo POST a /apartment/new-reservation. ACORDAOS que hay que pasar el identificador del apartamento en un <input:hidden>. Cómo hacerlo? Mirad la vida new-apartment.ejs -->
                     <h2>Datos de la reserva</h2>
                     <form action="/apartment/new-reservation" method="post">
+                        <input type="hidden" name="idApartment" value="<%= selectedApartment._id %>">
                         <label for="email">Email:</label>
                         <input type="email" name="email" id="email" required>
                         <label for="startDate">Fecha de inicio </label>
