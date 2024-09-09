@@ -33,8 +33,10 @@ const postNewApartment = async (req, res) => {
         // 1. Utlizar el método más adecuado para buscar un documento dado su id y actualizar sus campos a partir del req.body
         await Apartment.findByIdAndUpdate(id, req.body);
 
-        res.send('Apartamento actualizado'); // TODO:deberiamos renderizar de nuevo la vista de editar apartamento con un mensajito de éxito "Apartamento actualizado!"o bien devolver al usuario a la vista detalle del apartmento
-        return;
+        req.flash('success_msg', `Datos del apartamento acutalizados.`);
+
+        // req.get('referer') -> devuelve la ruta en la que ya estabas
+        return res.redirect(req.get('referer'));
     }
 
 
