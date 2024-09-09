@@ -31,5 +31,11 @@ body {
         /* Escala y recorta la imagen para llenar el contenedor */
     }
 
+    .detail-apartment {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1rem;
+    }
+
 
 }

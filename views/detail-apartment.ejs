@@ -10,25 +10,25 @@
     <header>
         <%- include('./partials/header.ejs') %>
     </header>
-    <article class="container">
-        <h1>
-            <%= selectedApartment.title %>
-        </h1>
-        <header> <del style="color: rgb(190, 182, 182)">
-                <%= selectedApartment.price %>
-            </del>
-            <%= selectedApartment.price * 0.9 %> € por noche
-        </header>
-        <img src="<%= selectedApartment.mainPhoto %>" alt="">
-        <div>
-            <%= selectedApartment.description %>
-        </div>
-        <footer>
-            <%= selectedApartment.size %> m<sup>2</sup>
-        </footer>
-    </article>
-    <footer class="container">
-        Soy administrador? <%= isAdmin %>
+    <main class="detail-apartment container">
+        <article>
+            <h1>
+                <%= selectedApartment.title %>
+            </h1>
+            <header> <del style="color: rgb(190, 182, 182)">
+                    <%= selectedApartment.price %>
+                </del>
+                <%= selectedApartment.price * 0.9 %> € por noche
+            </header>
+            <img src="<%= selectedApartment.mainPhoto %>" alt="">
+            <div>
+                <%= selectedApartment.description %>
+            </div>
+            <footer>
+                <%= selectedApartment.size %> m<sup>2</sup>
+            </footer>
+        </article>
+        <div class="container">
             <% if (isAdmin) { %>
                 <a href="/admin/apartment/<%= selectedApartment._id %>/edit/">Editar apartamento</a>
                 <% } else { %>
@@ -45,10 +45,9 @@
                         <input type="date" name="endDate" id="endDate">
                         <input type="submit" value="Reservar">
                     </form>
-                    <p>Mostrar botón de reservar con sus campos de fecha de inicio...fecha de fin, etc.</p>
                     <% } %>
-
-    </footer>
+        </div>
+    </main>
 </body>
 
 </html>
