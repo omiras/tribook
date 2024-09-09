@@ -4,9 +4,32 @@ body {
 
 .apartments {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 16px;
+
 }
 
 .apartments article {
     max-width: 400px;
+}
+
+.navigation-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width: 760px) {
+    .apartments {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .apartments img {
+        aspect-ratio: 1/1;
+        width: 100%;
+        object-fit: cover;
+        /* Escala y recorta la imagen para llenar el contenedor */
+    }
+
+
 }
