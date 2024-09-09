@@ -22,7 +22,7 @@ const postLoginForm = (req, res) => {
     if (username === USERNAME && password === PASSWORD) {
         req.session.isAuthenticated = true;
         res.locals.isAdmin = true;
-
+        req.flash('success_msg', `Sesión iniciada correctamente para el usuario ${username}`);
         res.redirect('/');
     } else {
         res.send('Usuario o contraseña incorrectos');

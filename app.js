@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const flash = require('connect-flash');
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -31,11 +32,15 @@ app.use(session({
     cookie: { secure: false } // secure: true en producción con HTTPS
 }));
 
+app.use(flash());
+
 
 app.use((req, res, next) => {
     // La variable req.locals es una variable "global" de tipo objecto a la que todas las vistas pueden acceder
     // Si el usuario esta autentificado entonces es que es de tipo administrador
     res.locals.isAdmin = req.session.isAuthenticated;
+    res.locals.success_msg = req.flash('success_msg');
+
 
     // tenemos que ejecutar next() para que la petición HTTP siga su curso
     next();

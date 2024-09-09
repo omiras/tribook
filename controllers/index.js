@@ -9,10 +9,11 @@ const getApartments = async (req, res) => {
 
     // Obtenemos todos los apartamentos de la base de datos
     const apartments = await Apartment.find();
-
+    console.log(res.locals.success_msg)
 
     res.render('home', {
         apartments,
+
     });
 }
 

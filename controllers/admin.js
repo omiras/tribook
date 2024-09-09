@@ -46,7 +46,8 @@ const postNewApartment = async (req, res) => {
         mainPhoto: req.body.mainPhoto
     });
 
-    res.send('Apartamaneto creado');
+    req.flash('success_msg', `Apartamento  ${req.body.title} creado correctamente`);
+    res.redirect('/');
 }
 
 // named exports (expotamos varios recursos, lo hacemos como un objeto)

@@ -7,3 +7,10 @@
             <p><a href="/login">Login</a></p>
             <% } %>
 </div>
+<div>
+    <% if (success_msg.length!=0) { %>
+        <div class="alert success">
+            <%= success_msg %>
+        </div>
+        <% } %>
+</div>

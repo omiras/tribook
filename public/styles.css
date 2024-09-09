@@ -18,6 +18,18 @@ body {
     justify-content: space-between;
 }
 
+.alert {
+    margin-bottom: 15px;
+    padding: 4px 12px;
+}
+
+.success {
+    background-color: #ddffdd;
+    border-left: 6px solid #04AA6D;
+}
+
+
+
 @media (min-width: 760px) {
     .apartments {
         display: grid;
