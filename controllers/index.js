@@ -47,6 +47,9 @@ const postNewReservation = async (req, res) => {
     // 1. Es una petición tipo POST-> desestructurar el req.body y obtener todos los datos de la reserva
     const { email, startDate, endDate, idApartment } = req.body;
 
+   
+    
+
     // 2A. DAdo el id del apartmento,  recuperar el Apartment de la colección. Luego crear la reserva Reservation.create() pasandole el apartamento que acabamos de recuperar
     const apartment = await Apartment.findById(idApartment);
     const newReservation = await Reservation.create({
