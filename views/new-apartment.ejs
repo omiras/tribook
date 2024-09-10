@@ -27,6 +27,7 @@
             <label for="size">M <sup>2</sup></label>
             <input type="number" name="size" id="size" required min="0" value="<%= apartment.size %>">
             <label for="mainPhoto">Foto principal</label>
+            <img style="display: none;" id="preview-photo" src="" alt="">
             <input type="url" name="mainPhoto" id="mainPhoto" required value="<%= apartment.mainPhoto  %>">
             <button type="button" style="margin-bottom: 1rem;background-color: rgb(155, 108, 20)"
                 id="upload_widget">Subir
@@ -47,7 +48,12 @@
                 console.log('Done! Here is the image info: ', result.info);
 
                 // guardamos la URL de la foto en el campo input
+                document.querySelector('#preview-photo').src = result.info.url;
+                document.querySelector('#preview-photo').style.display = "block";
+
                 document.querySelector('#mainPhoto').value = result.info.url;
+                document.querySelector('#mainPhoto').style.display = "none";
+
             }
         }
         )
