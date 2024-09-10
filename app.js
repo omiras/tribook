@@ -85,6 +85,16 @@ async function connectDB() {
 
 connectDB().catch(err => console.log(err))
 
+/** Uso de middleware para gestionar cualquier error imprevisto de nuestra aplicaicón y fallar de forma grácil */
+app.use((err, req, res, next) => {
+    // err.message -> simplemente el mensaje
+    // err.stack -> la pila de llamadas
+    console.error(err)
+    // Enviar un correo electronico o cualquier otro medio a los desarrolladores para que se den cuenta de que algo ha 'petao'
+    res.status(500).send('<p>Ups! La operación ha fallado. Hemos informado a los desarrolladores. Vuelve a probarlo más tarde.Vuelve a la <a href="/">home page</a></p> ');
+})
+
+
 app.listen(PORT, (req, res) => {
     console.log("Servidor escuchando correctamente en el puerto " + PORT);
 });
