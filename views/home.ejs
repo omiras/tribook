@@ -15,10 +15,20 @@
         <h1>Home Page</h1>
         <!-- Paso 1 BUSCAR: Añadir un formulario para realizar la búsqueda por precio máximo. este <form> que valor tiene el atributo method? GET . Qué valor tendrá el atributo "action"? /search -->
         <form class="container" action="/search">
-            <label for="maxPrice">Precio máximo por noche</label>
-            <input type="number" name="maxPrice" id="maxPrice" min="0" max="1000000">
-            <input type="submit" value="Filtrar">
+            <fieldset>
+                <label for="maxPrice">Precio máximo por noche</label>
+                <input type="number" name="maxPrice" id="maxPrice" min="0" max="1000000" value="1000000">
+            </fieldset>
+            <fieldset>
+                <label for="orderBy">Ordenar por: </label>
+                <select name="orderBy" id="orderBy">
+                    <option value="default">Apartamentos más recientes primero</option>
+                    <option value="minPrice">Precio (más bajo primero)</option>
+                </select>
+            </fieldset>
+            <input type="submit" value="Filtrar y ordenar">
         </form>
+
         <div class="container apartments">
             <% for (const ap of apartments) { %>
                 <a href="/apartment/<%= ap._id %>">
