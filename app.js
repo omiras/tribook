@@ -17,6 +17,10 @@ const adminRoutes = require('./routes/admin.js');
 // rutas de autentificación
 const authRoutes = require('./routes/auth.js');
 
+// rutas de la API pública
+const apiRoutes = require('./routes/api.js');
+
+
 
 // creamos una instancia del servidor Express
 const app = express();
@@ -77,6 +81,7 @@ app.use('/admin', (req, res, next) => {
 app.use('/admin', adminRoutes);
 app.use('/', authRoutes);
 app.use('/', indexRoutes);
+app.use('/api', apiRoutes);
 
 async function connectDB() {
     await mongoose.connect(process.env.MONGODB_URI);
