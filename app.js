@@ -27,6 +27,7 @@ const app = express();
 
 // Tenemos que usar un nuevo middleware para indicar a Express que queremos procesar peticiones de tipo POST
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Configurar sesión
 app.use(session({
