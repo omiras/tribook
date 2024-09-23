@@ -1,18 +1,30 @@
+const { MAX_DOCUMENTS } = require('../config/constants');
 const Apartment = require('../models/apartment.model');
+const { validationResult } = require('express-validator');
 
 const getApartments = async (req, res) => {
 
     // Comprobar el valor del parámetro req.query.limit que esté 1 y 100000
     // Si req.query.limit es menor de 1 O req.query.limit es mayor de 10000, devolver un mensaje de error
     // Además, tenemos que comprobar si realmente me estan pasando un número
-    if (req.query.limit < 1 || req.query.limit > 100000) {
+    // if (req.query.limit < 1 || req.query.limit > 100000) {
+    //     return res.status(400).json({
+    //         message: "The 'limit' parameter must be a number between 1 and 100000"
+    //     })
+    // }
+
+    // 1. Queremos ser capaces de obtener de la query string el valor del parámetro limit
+
+    const result = validationResult(req);
+
+    // si validation result devuelve algún valor que ha habido algun parámetro que no ha pasado el proceso de validación
+    if (!result.isEmpty()) {
         return res.status(400).json({
-            message: "The 'limit' parameter must be a number between 1 and 100000"
+            message: result.array()[0].msg
         })
     }
 
-    // 1. Queremos ser capaces de obtener de la query string el valor del parámetro limit
-    const limit = req.query.limit || 100000;
+    const limit = req.query.limit || MAX_DOCUMENTS;
 
 
     // 21.45 -> Corregir la primera parte, es decir, que si está informado el parámetro 'limit', devolver como mucho ese número de apartmentos
