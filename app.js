@@ -70,7 +70,7 @@ app.use('/admin', (req, res, next) => {
     if (req.session.isAuthenticated) {
         // Si es que si, establecemos que es de tipo administrador y permitimos que siga la petición
         res.locals.isAdmin = true;
-        next();
+        next(); // /admin/apartments/new-apartment
     } else {
         // en caso contrario lo llevamos a la vista de login
         res.redirect('/login');
