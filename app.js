@@ -80,7 +80,13 @@ app.use('/admin', (req, res, next) => {
 app.use('/admin', adminRoutes);
 app.use('/', authRoutes);
 app.use('/', indexRoutes);
+// Esto lo explicaremos el 1/10
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
 app.use('/api', apiRoutes);
+
 
 async function connectDB() {
     await mongoose.connect(process.env.MONGODB_URI);
