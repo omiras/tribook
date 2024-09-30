@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const flash = require('connect-flash');
+const cors = require('cors');
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -76,15 +77,13 @@ app.use('/admin', (req, res, next) => {
         res.redirect('/login');
     }
 });
+// Esto lo explicaremos el 1/10
 
+app.use(cors());
 app.use('/admin', adminRoutes);
 app.use('/', authRoutes);
 app.use('/', indexRoutes);
-// Esto lo explicaremos el 1/10
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-});
+
 app.use('/api', apiRoutes);
 
 
