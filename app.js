@@ -79,7 +79,7 @@ app.use('/admin', (req, res, next) => {
 });
 // Esto lo explicaremos el 1/10
 
-app.use(cors());
+// app.use(cors());
 app.use('/admin', adminRoutes);
 app.use('/', authRoutes);
 app.use('/', indexRoutes);
