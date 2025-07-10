@@ -1,5 +1,5 @@
-const USERNAME = "admin";
-const PASSWORD = "admin";
+const USERNAME = "andrii";
+const PASSWORD = "ironhack2025";
 
 const getLoginForm = (req, res) => {
     res.send(`
