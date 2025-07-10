@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: 'miSecretoSuperSecreto',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: { secure: false } // secure: true en producción con HTTPS
 }));
 
