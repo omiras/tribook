@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tribook Apartments</title>
+    <!-- Indica que hacemos la petición GET a la raíz del servidor -->
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+    <main class="container">
+        
+        <header>
+            <%- include('./partials/header.ejs') %>
+        </header>
+        <form method="POST" action="/login">
+            <input type="text" name="username" placeholder="Usuario" required />
+            <input type="password" name="password" placeholder="Contraseña" required />
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    </main>
+</body>
+</html>

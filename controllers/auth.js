@@ -2,13 +2,7 @@ const USERNAME = "andrii";
 const PASSWORD = "ironhack2025";
 
 const getLoginForm = (req, res) => {
-    res.send(`
-        <form method="POST" action="/login">
-            <input type="text" name="username" placeholder="Usuario" required />
-            <input type="password" name="password" placeholder="Contraseña" required />
-            <button type="submit">Iniciar sesión</button>
-        </form>
-    `);
+    res.render('login.ejs');
 }
 
 const postLoginForm = (req, res) => {
